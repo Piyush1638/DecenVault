@@ -12,7 +12,6 @@ const getEthereumContract = async () => {
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
     const contract = new ethers.Contract(uploadAddress, uploadABI, signer);
-    console.log("Contract:", contract);
     return contract;
   } catch (error) {
     console.log(error);
@@ -76,7 +75,6 @@ export const UploadProvider = ({ children }) => {
         setLoading(false);
         setFileName("");
         setFile(null);
-        console.log(Imghash);
         alert("File added on blockchain");
       } catch (error) {
         alert(error.message);
@@ -131,7 +129,7 @@ export const UploadProvider = ({ children }) => {
         alert("No images to show.");
       }
     } catch (error) {
-      console.log(error.message);
+      alert(error.message);
     }
   };
 

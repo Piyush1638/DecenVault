@@ -6,7 +6,6 @@ const Display = () => {
 
   const fetchData = async ()=>{
      const otherAddress = document.querySelector(".input").value;
-     console.log(otherAddress);
      try {
        await getData(otherAddress);
      } catch (error) {

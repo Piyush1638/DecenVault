@@ -23,7 +23,6 @@ const Modal = ({ setModalOpen }) => {
     const init = async () => {
       const contract = await getEthereumContract();
       setContract(contract);
-      console.log("Contract from modal: ", contract);
     };
     init();
   }, []);
@@ -31,12 +30,10 @@ const Modal = ({ setModalOpen }) => {
   const accessList = async () => {
     const contract = await getEthereumContract();
     const addressList = await contract.shareAccess();
-    console.log(addressList);
     let select = document.querySelector("#selectNumber");
     const options = addressList;
 
     for (let i = 0; i < options.length; i++) {
-      console.log(options[i]);
       let opt =
         options[i].user.slice(0, 10) +
         "..." +
